@@ -17,18 +17,26 @@ function promptNumber(message) {
   return number;
 }
 
-function askOperator() {
-  const tempOperator = promptNumber('Enter the operator : ');
+function calculateResult(operator, firstNumber, secondNumber) {
+  if (operator === 4 && secondNumber === 0) {
+    console.log('Error : division by 0');
+    process.exit(1);
+  }
 
-  if (
-    tempOperator !== 1 &&
-    tempOperator !== 2 &&
-    tempOperator !== 3 &&
-    tempOperator !== 4
-  ) {
-    askOperator();
-  } else {
-    return tempOperator;
+  if (operator === 1) {
+    return firstNumber + secondNumber;
+  }
+
+  if (operator === 2) {
+    return firstNumber - secondNumber;
+  }
+
+  if (operator === 3) {
+    return firstNumber * secondNumber;
+  }
+
+  if (operator === 4) {
+    return firstNumber / secondNumber;
   }
 }
 
@@ -40,23 +48,15 @@ console.log(`Choose an operator :
 3. Multiplication
 4. Division`);
 
-const operator = askOperator();
+const operator = Number(prompt('Enter the operator : '));
+
+if (operator !== 1 && operator !== 2 && operator !== 3 && operator !== 4) {
+  console.log('Error : operator is not 1, 2, 3 or 4');
+  process.exit(1);
+}
 
 const firstNumber = promptNumber('Enter the first number : ');
 
 const secondNumber = promptNumber('Enter the second number : ');
 
-switch (operator) {
-  case 1:
-    console.log('The result of addition is : ', firstNumber + secondNumber);
-    break;
-  case 2:
-    console.log('The result of soustraction is : ', firstNumber - secondNumber);
-    break;
-  case 3:
-    console.log('The result of multiplication is : ', firstNumber * secondNumber);
-    break;
-  case 4:
-    console.log('The result of division is : ', firstNumber / secondNumber);
-    break;
-}
+console.log('The result is', calculateResult(operator, firstNumber, secondNumber));

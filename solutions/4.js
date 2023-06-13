@@ -17,21 +17,6 @@ function promptNumber(message) {
   return number;
 }
 
-function askOperator() {
-  const tempOperator = promptNumber('Enter the operator : ');
-
-  if (
-    tempOperator !== 1 &&
-    tempOperator !== 2 &&
-    tempOperator !== 3 &&
-    tempOperator !== 4
-  ) {
-    return askOperator();
-  } else {
-    return tempOperator;
-  }
-}
-
 function calculateResult(operator, firstNumber, secondNumber) {
   if (operator === 4 && secondNumber === 0) {
     console.log('Error : division by 0');
@@ -55,6 +40,21 @@ function calculateResult(operator, firstNumber, secondNumber) {
   }
 }
 
+function askOperator() {
+  const tempOperator = promptNumber('Enter the operator : ');
+
+  if (
+    tempOperator !== 1 &&
+    tempOperator !== 2 &&
+    tempOperator !== 3 &&
+    tempOperator !== 4
+  ) {
+    askOperator();
+  } else {
+    return tempOperator;
+  }
+}
+
 console.log('ADDITION-MASTER ™️');
 
 console.log(`Choose an operator :
@@ -64,6 +64,11 @@ console.log(`Choose an operator :
 4. Division`);
 
 const operator = askOperator();
+
+if (operator !== 1 && operator !== 2 && operator !== 3 && operator !== 4) {
+  console.log('Error : operator is not 1, 2, 3 or 4');
+  process.exit(1);
+}
 
 const firstNumber = promptNumber('Enter the first number : ');
 
