@@ -1,7 +1,7 @@
 import { prompt } from '../helper.js';
 
 function validateNumber(number) {
-  if (Number.isNaN(number) && Math.abs(firstNumber) > 100000000000000) {
+  if (Number.isNaN(number) || Math.abs(firstNumber) > 100000000000000) {
     console.log(
       'Error : number is not a number or is too big / too small (max: 100000000000000)'
     );
