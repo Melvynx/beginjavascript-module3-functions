@@ -84,12 +84,10 @@ function promptNumber(message) {
 }//        │
 //     ┌───┘
 //     │
-const value = prompt
-
-Number('Enter a number');
+const value = promptNumber('Enter a number');
 ```
 
-Quand on utilise le mot clé `return`, ça permet de retourner une valeur depuis la fonction.
+Quand on utilise le mot-clé `return`, cela permet de retourner une valeur depuis la fonction.
 
 C'est-à-dire que la valeur va "quitter" la fonction pour être "envoyée" à l'endroit où on a appelé la fonction.
 
@@ -112,7 +110,7 @@ Pour résumer, ta mission est de créer une fonction `promptNumber` qui va récu
 
 Dans cette partie, on va modifier la manière dont on affiche le résultat. Avant, on utilisait un switch qui gérait les différents cas.
 
-On va remplacer ça par une fonction et utiliser la puissance du mot clé `return` pour arrêter la lecture de la fonction chaque fois qu'on a trouvé le bon cas.
+On va remplacer cela par une fonction et utiliser la puissance du mot-clé `return` pour arrêter la lecture de la fonction chaque fois qu'on a trouvé le bon cas.
 
 Ce `return` va nous permettre aussi de pouvoir facilement gérer le cas où on essaie de diviser par 0 si l'opération est une division.
 
@@ -128,7 +126,7 @@ Elle prend en paramètre :
 - `firstNumber` : le premier nombre
 - `secondNumber` : le deuxième nombre
 
-Ensuite, tu vas utiliser des **if** pour chaque cas et utiliser le mot clé `return` pour arrêter la lecture de la fonction.
+Ensuite, tu vas utiliser des **if** pour chaque cas et utiliser le mot-clé `return` pour arrêter la lecture de la fonction.
 
 ![](./images/return.png)
 
@@ -136,7 +134,7 @@ Quand tu utilises `return`, tu **arrêtes instantanément** la lecture de la fon
 
 Donc tout le code après n'est pas exécuté !
 
-C'est pour ça qu'on va pouvoir vérifier chaque opérateur et dans le cas où on trouve le bon, on va faire un `return` de la valeur, ce qui va arrêter la lecture de la fonction et retourner la valeur.
+C'est pour cela qu'on va pouvoir vérifier chaque opérateur et dans le cas où on trouve le bon, on va faire un `return` de la valeur, ce qui va arrêter la lecture de la fonction et retourner la valeur.
 
 Le `return` est un concept à lui tout seul et on en parlera dans la théorie de ce module.
 
@@ -148,17 +146,15 @@ Bonus, car on va aborder un sujet compliqué : la récursivité.
 
 Dans l'exercice sur les conditions, partie 5 bonus, on avait utilisé une boucle `while` pour récupérer l'opérateur jusqu'à ce qu'il soit valide.
 
-Ici, on va refaire la même feature, mais avec une fonction récursive.
+Ici, on va refaire la même fonctionnalité, mais avec une fonction récursive.
 
-Pour ça, on va créer une fonction `promptOperator` qui va récupérer l'opérateur depuis l'input et le retourner.
+Pour cela, on va créer une fonction `promptOperator` qui va récupérer l'opérateur depuis l'input et le retourner.
 
 MAIS, si l'opérateur n'est pas valide (pas 1, 2, 3 ou 4), on va appeler la fonction `promptOperator` depuis la fonction `promptOperator`.
 
 C'est-à-dire que notre fonction va s'appeler elle-même.
 
-Et encore plus
-
-fou, on va retourner `promptOperator` depuis `promptOperator` !
+Et encore plus fou, on va retourner `promptOperator` depuis `promptOperator` !
 
 ```js
 function promptOperator() {
@@ -170,12 +166,12 @@ function promptOperator() {
 }
 ```
 
-Ce qui va se passer, c'est qu'on va réappeler la fonction `promptOperator` depuis la fonction `promptOperator` et ainsi de suite jusqu'à ce que l'opérateur soit valide.
+Ce qui va se passer, c'est que nous allons rappeler la fonction `promptOperator` depuis la fonction `promptOperator` et ainsi de suite jusqu'à ce que l'opérateur soit valide.
 
 Donc, le résultat final sera un opérateur valide.
 
-C'est un concept pas facile au début, mais t'en fais pas, on va en parler dans la théorie de ce module.
+C'est un concept pas facile au début, mais ne t'en fais pas, nous en parlerons dans la théorie de ce module.
 
-Pour l'instant, essaie de t'amuser avec ce concept afin de créer cette fonction récursive, et dans le cas où l'opérateur est juste, tu peux juste retourner l'opérateur, ce qui va arrêter la lecture de la fonction et retourner l'opérateur.
+Pour l'instant, essaie de t'amuser avec ce concept afin de créer cette fonction récursive, et dans le cas où l'opérateur est correct, tu peux simplement retourner l'opérateur, ce qui va arrêter la lecture de la fonction et retourner l'opérateur.
 
 Ta mission est de créer cette fonction récursive et de remplacer la logique de récupération de l'opérateur par cette fonction.
